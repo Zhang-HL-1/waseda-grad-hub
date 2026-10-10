@@ -20,11 +20,44 @@
 
 ## 运行
 
+线上版已部署，直接访问即可；本地预览有两种方式。
+
+**方式一：什么都不启动**（推荐）——双击 `index.html` 用浏览器打开。页面不发起任何网络请求，`file://` 下功能完整。
+
+**方式二：起一个本地静态服务**
+
 ```bash
 cd waseda-grad-hub
 python3 -m http.server 8788 --bind 127.0.0.1
-# 浏览器打开 http://127.0.0.1:8788/
+# 前台运行，浏览器打开 http://127.0.0.1:8788/ ；按 Ctrl+C 即关闭
 ```
+
+**方式三：用附带的小脚本**（后台运行，方便开关）
+
+```bash
+./tools/serve.sh start     # 启动（默认 8788，可跟端口号，如 start 9000）
+./tools/serve.sh status    # 查看是否在运行
+./tools/serve.sh stop      # 关闭
+./tools/serve.sh restart   # 重启
+```
+
+### 关不掉时的手动办法
+
+```bash
+# 1. 查出占用端口的进程（PID 在最后一列）
+lsof -nP -iTCP:8788 -sTCP:LISTEN
+
+# 2. 按 PID 关闭
+kill <PID>            # 温和关闭；若无效再用 kill -9 <PID>
+
+# 或者一条命令按名字清理
+pkill -f "http.server 8788"
+
+# 3. 复查：没有输出就说明已释放
+lsof -nP -iTCP:8788 -sTCP:LISTEN
+```
+
+> 如果是「方式二」在终端前台运行的，直接在那个终端窗口按 `Ctrl+C` 即可；关掉终端窗口同样会结束服务。
 
 纯静态，无构建步骤、无外部依赖（字体使用系统字体栈，地图为本地简化后的 SVG 路径数据）。
 
@@ -33,6 +66,7 @@ python3 -m http.server 8788 --bind 127.0.0.1
 ```
 waseda-grad-hub/
 ├── index.html                 页面骨架（侧边栏 + 三个模块视图 + 详情抽屉）
+├── tools/serve.sh             本地预览服务开关脚本（start / stop / status / restart）
 ├── assets/css/style.css       设计系统：燕麦底色 / 陶土橘 / 衬线标题 / 动效
 ├── assets/js/data.js          ★ 全部内容数据（排名、研究科、校区）
 ├── assets/js/map-data.js      日本都道府县简化轮廓（SVG path，墨卡托投影）
