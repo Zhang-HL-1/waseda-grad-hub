@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# 本地预览用的 Chrome profile（如用 tools/smoke.js 调试会产生）
+.chrome-prof/
+.chrome-prof-*/
+
+# 日志
+*.log

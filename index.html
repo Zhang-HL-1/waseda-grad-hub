@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本修士备考 · 个人资源库 | 早稻田大学</title>
+<meta name="description" content="日本大学院（修士）备考个人资源库：院校排名、研究科与专攻大全、校区地理位置。首期收录早稻田大学。">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23d97757'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='serif'>修</text></svg>">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ 侧边栏 ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 7.5 12 3l8 4.5-8 4.5-8-4.5Z"/>
+          <path d="M6.5 10v4.6c0 1.9 2.5 3.4 5.5 3.4s5.5-1.5 5.5-3.4V10"/>
+          <path d="M20 8v5"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <strong>修士资源库</strong>
+        <span>日本大学院 · 备考个人库</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="模块导航">
+      <p class="nav-label">模块</p>
+      <button class="nav-item is-active" data-view="rankings">
+        <span class="nav-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
+          </svg>
+        </span>
+        <span class="nav-txt">学校排名<i>Rankings</i></span>
+        <span class="nav-count" id="navCountRank"></span>
+      </button>
+      <button class="nav-item" data-view="schools">
+        <span class="nav-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M5 21V7l7-4 7 4v14"/>
+            <path d="M9.5 21v-5h5v5M9 11h.01M12 11h.01M15 11h.01"/>
+          </svg>
+        </span>
+        <span class="nav-txt">研究科·专攻<i>Graduate Schools</i></span>
+        <span class="nav-count" id="navCountSchool"></span>
+      </button>
+      <button class="nav-item" data-view="geo">
+        <span class="nav-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+        </span>
+        <span class="nav-txt">地理位置<i>Campus Map</i></span>
+        <span class="nav-count" id="navCountCampus"></span>
+      </button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="source-chip">
+        <span class="dot"></span>
+        <div>
+          <strong>数据来源</strong>
+          <span>早稻田大学官方网站</span>
+        </div>
+      </div>
+      <p class="foot-note">个人学习用途 · 非官方站点</p>
+    </div>
+  </aside>
+
+  <!-- ============ 主区域 ============ -->
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="切换侧边栏">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="crumbs" id="crumbs">
+        <span>资源库</span><i>/</i><span class="crumb-cur">学校排名</span>
+      </div>
+      <div class="topbar-right">
+        <div class="search" id="topSearchWrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="topSearch" type="search" placeholder="搜索研究科 / 专攻 / 校区…" autocomplete="off">
+          <kbd>⌘K</kbd>
+        </div>
+        <span class="badge-verified" title="内容整理自学校官方网站">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+          官网来源
+        </span>
+      </div>
+    </header>
+
+    <div class="scroll" id="scroll">
+
+      <!-- ---------- 模块一：学校排名 ---------- -->
+      <section class="view is-active" id="view-rankings" data-view="rankings">
+        <div class="page-head">
+          <p class="eyebrow">Module 01 · Rankings</p>
+          <h1>学校排名</h1>
+          <p class="lede">
+            以早稻田大学官方公开发布的排名信息为准，附出处链接。排名只是参考坐标，
+            真正决定上岸的是研究科匹配度与出愿材料。
+          </p>
+          <div class="head-meta">
+            <span class="pill"><b id="rankSchoolName">早稲田大学</b></span>
+            <span class="pill" id="rankUpdated">数据截至 —</span>
+            <a class="pill pill-link" id="rankSourceLink" href="#" target="_blank" rel="noopener">官网排名页 ↗</a>
+          </div>
+        </div>
+
+        <div class="rank-hero card" id="rankHero"></div>
+
+        <div class="section-head">
+          <h2>榜单明细</h2>
+          <p>点击卡片查看排名口径与官网出处</p>
+        </div>
+        <div class="rank-grid" id="rankGrid"></div>
+
+        <div class="section-head">
+          <h2>国内坐标</h2>
+          <p>在日本私立大学中的位置（依据官网公开表述）</p>
+        </div>
+        <div class="card rank-context" id="rankContext"></div>
+
+        <div class="card note-card">
+          <div class="note-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          </div>
+          <div>
+            <h3>怎么用这个模块</h3>
+            <p>排名用于确定冲刺 / 稳妥 / 保底的院校梯队。同一所学校不同研究科的竞争度差异远大于校际差异，选校时请结合「研究科·专攻」模块一起看。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 模块二：研究科·专攻大全 ---------- -->
+      <section class="view" id="view-schools" data-view="schools">
+        <div class="page-head">
+          <p class="eyebrow">Module 02 · Graduate Schools</p>
+          <h1>研究科及专攻大全</h1>
+          <p class="lede">
+            早稻田大学大学院全研究科（含専門職大学院）与其下设专攻 / 课程一览。
+            点开任一研究科，可查看专攻构成、授予学位、所在校区与官网入口。
+          </p>
+          <div class="head-meta">
+            <span class="pill">收录 <b id="statSchoolCount">—</b> 个研究科</span>
+            <span class="pill">专攻 / 课程 <b id="statProgramCount">—</b> 项</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search search-inline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="schoolSearch" type="search" placeholder="搜索研究科、专攻关键词（如：情报、経済、LL.M.）" autocomplete="off">
+          </div>
+          <div class="filters" id="schoolFilters"></div>
+        </div>
+
+        <p class="data-hint">
+          <span>※</span>
+          <span>标注 <b>目录待复核</b> 的研究科：官网页面未直接给出该名称（多为专攻/课程名），条目整理中；
+          其余研究科已逐条对照官网「3つのポリシー」与理工学術院「研究科・専攻の紹介」页面。</span>
+        </p>
+
+        <div class="school-grid" id="schoolGrid"></div>
+        <div class="empty-state" id="schoolEmpty" hidden>
+          <p>没有匹配的研究科，换个关键词试试。</p>
+        </div>
+      </section>
+
+      <!-- ---------- 模块三：地理位置 ---------- -->
+      <section class="view" id="view-geo" data-view="geo">
+        <div class="page-head">
+          <p class="eyebrow">Module 03 · Campus Map</p>
+          <h1>地理位置</h1>
+          <p class="lede">
+            早稻田大学在日本全国的校区分布。修士阶段最常打交道的是早稻田、户山、西早稻田三个都内校区，
+            理工与情报方向另需留意北九州、本庄等校区。
+          </p>
+          <div class="head-meta">
+            <span class="pill">校区 <b id="statCampusCount">—</b> 处</span>
+            <span class="pill" id="geoUpdated">地址依据官网「交通アクセス」</span>
+          </div>
+        </div>
+
+        <div class="geo-layout">
+          <div class="card map-card">
+            <div class="map-head">
+              <div class="map-title">
+                <strong>全国校区分布</strong>
+                <span id="mapSubtitle">示意地图 · 圆点为校区，点击数字徽标可展开聚集的校区</span>
+              </div>
+              <div class="map-actions">
+                <button class="chip is-active" data-bbox="japan">全 国</button>
+                <button class="chip" data-bbox="kanto">関東</button>
+                <button class="chip" data-bbox="tokyo">東京都内</button>
+              </div>
+            </div>
+            <div class="map-wrap" id="mapWrap">
+              <svg id="japanMap" preserveAspectRatio="xMidYMid meet" role="img" aria-label="早稻田大学校区分布示意图">
+                <g id="mapGrid"></g>
+                <g id="mapPrefs"></g>
+                <g id="mapRings"></g>
+                <g id="mapPins"></g>
+              </svg>
+              <div class="map-inset">
+                <span class="mi-k">校区分布</span>
+                <strong id="miTotal">—</strong>
+                <ul id="miList"></ul>
+              </div>
+              <div class="map-north" aria-hidden="true">
+                <svg viewBox="0 0 24 40"><path d="M12 2 19 30l-7-5-7 5z" fill="currentColor"/></svg>
+                <span>N</span>
+              </div>
+              <div class="map-tip" id="mapTip" hidden></div>
+            </div>
+            <div class="map-legend">
+              <span><i class="lg lg-main"></i>主要校区</span>
+              <span><i class="lg lg-sub"></i>专门设施 / 卫星校区</span>
+              <span class="map-note">地图为简化示意图（等角圆柱投影），位置用于相对关系判断。</span>
+            </div>
+          </div>
+
+          <div class="campus-list" id="campusList"></div>
+        </div>
+      </section>
+
+      <footer class="site-foot">
+        <p>内容整理自早稻田大学官方网站（www.waseda.jp），仅作个人备考参考；以官网最新公告为准。</p>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<!-- ============ 详情抽屉 ============ -->
+<div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="详情">
+  <div class="drawer-inner" id="drawerInner"></div>
+</aside>
+
+<script src="assets/js/map-data.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
