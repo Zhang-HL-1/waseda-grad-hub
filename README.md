@@ -3,7 +3,8 @@
 一个类 Claude 风格的静态站点，用于整理日本大学院（修士）报考所需的院校信息。
 **首期只收录早稲田大学**，目前实现三个模块：
 
-**在线预览**：https://zhang-hl-1.github.io/waseda-grad-hub/
+**在线预览（GitHub Pages）**：https://zhang-hl-1.github.io/waseda-grad-hub/
+<sub>部署后的实际渲染：`preview/07-live-pages.png`（与本地渲染逐字节一致）</sub>
 
 ![学校排名](preview/01-rankings.png)
 ![研究科及专攻大全](preview/02-schools.png)
